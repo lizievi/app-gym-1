@@ -1,73 +1,100 @@
-# React + TypeScript + Vite
+💪 Fitness Gym
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+¡Bienvenido al proyecto frontend App-Gym-1 Esta aplicación web está diseñada para ser una landing page moderna y altamente interactiva para el gimnasio, enfocada en la experiencia del usuario y el rendimiento.
 
-Currently, two official plugins are available:
+🚀 Tecnologías Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El proyecto está construido con un stack moderno de desarrollo web:
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  React (^19.2.0): Biblioteca principal para la construcción de la interfaz de usuario.
 
-## Expanding the ESLint configuration
+  TypeScript (~5.9.3): Lenguaje tipado para código más robusto y escalable.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  Vite (^7.2.2): Herramienta de construcción rápida y optimizada.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  Tailwind CSS (^4.1.17): Framework CSS utility-first para estilos responsivos.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+  Swiper (^12.0.3): Librería para carruseles y sliders de contenido.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+  Framer Motion (^12.23.24): Librería para animaciones fluidas y declarativas.
+
+  Lucide React (Implícito): Iconografía modular.
+
+
+
+
+🛠️ Instalación y Configuración
+
+Para poner en marcha el proyecto en tu máquina local, sigue los siguientes pasos:
+
+Clona el repositorio:
+
+git clone [URL_DEL_REPOSITORIO]
+cd app-gym-1
+
+
+Instala las dependencias:
+
+npm install
+
+
+Ejecuta el servidor de desarrollo:
+
+npm run dev
+
+
+El sitio estará disponible en http://localhost:5173 (o el puerto que asigne Vite).
+
+📦 Estructura del Proyecto
+
+La estructura de carpetas sigue un patrón basado en componentes y módulos:
+
+```plain
+  src/
+  ├── animation/          # Lógica de animación con Framer Motion
+  ├── assets/             # Archivos estáticos (imágenes, iconos, etc.)
+  ├── components/         # Componentes reutilizables de la UI (e.g., Header, Footer, Accordion)
+  │   ├── About.tsx
+  │   ├── Accordion.tsx
+  │   ├── Banner.tsx
+  │   ├── ...
+  │   ├── WorkoutSlider.tsx
+  ├── data.ts             # Archivos de datos tipados (e.g., pricingData, faq)
+  ├── App.css             # Estilos de la aplicación
+  ├── index.css           # Archivo principal de Tailwind (donde está @theme)
+  ├── main.tsx            # Punto de entrada de React
+  └── workoutSlider.css   # Estilos específicos para los sliders (Swiper)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🎨 Convenciones de Diseño (Tailwind CSS)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+El proyecto utiliza un sistema de diseño customizado inyectado directamente a través de @theme en index.css, lo cual define la paleta de colores, tipografía y utilidades base.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Paleta de Colores
+
+  --color-primary-200 (#F28D34): Color Primario. Usado en botones, acentos y estados activos.
+
+  --color-neutral-500 (#131316): Texto Principal. Usado en títulos y elementos clave.
+
+  --color-neutral-400 (#595962): Texto Secundario. Usado para el cuerpo de texto general.
+
+  --color-page (#fcfcff): Fondo general de la aplicación.
+
+Tipografía
+
+  --font-primary (Títulos): Inter
+
+  --font-secondary (Cuerpo): "Open Sans"
+
+Clases de Utilidad Clave
+
+  .container: Contenedor responsivo con ancho ajustado por breakpoints (sm:w-[90%], md:w-[80%], lg:w-[70%] de ancho).
+
+  .h1, .h2, etc.: Clases tipográficas con estilos predefinidos para encabezados (usan font-primary y font-extrabold).
+
+  .btn-primary: Botón principal con fondo primario (#F28D34) y texto blanco.
+
+  .section: Estilo base para las secciones con padding responsivo.
+
+  .workoutSlider: Contenedor con position: relative para el posicionamiento correcto de las flechas de Swiper.
